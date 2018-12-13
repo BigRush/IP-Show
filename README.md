@@ -1,5 +1,7 @@
 # IP-Show
 
+Shows internal and external IP by user's request
+
 
 
 ### Installing
