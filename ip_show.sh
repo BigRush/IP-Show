@@ -8,12 +8,12 @@
 #
 # Description :  Shows internal and external IP address
 #
-# Version :  1.0.0
+# Version :  1.2.0
 ################################################################################
 
 Internal_IP () {
-	int_ip=$(ip route show |awk '{print $3,$9}' |sed '1d')
-	if [[ -z ${int_ip[*]} ]]; then
+	int_ip=$(ip route show |grep src |awk '{print $3,$9}' |sed '1d')
+	if [[ -z $int_ip ]]; then
 		echo "Could not retrieve internal IP..."
 		exit 1
 	else
@@ -27,7 +27,7 @@ External_IP () {
 	ping -c 3 ipinfo.io &> /dev/null
 	if [[ $? -eq 0 ]]; then
 		ext_ip=$(curl -s https://ipinfo.io/ip)
-		echo "Your external IP is: $ext_ip"
+		echo "Your external IP is: $ext_ip" 
 		exit 0
 	else
 		echo "Unable to connect to the interet, can't determine external IP"
