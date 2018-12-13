@@ -26,10 +26,8 @@ git clone https://github.com/BigRush/IP-Show.git
 Change to the project's directory:
 
 ```
-cd Automated-Installer
+cd IP-Show
 ```
-
-### To Run the script you'll need to run it once as **root** and once as **non-root**:
 
 
 Run the script:
